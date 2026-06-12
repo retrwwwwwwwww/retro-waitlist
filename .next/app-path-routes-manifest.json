@@ -1,0 +1,7 @@
+{
+  "/_not-found/page": "/_not-found",
+  "/_global-error/page": "/_global-error",
+  "/api/waitlist/route": "/api/waitlist",
+  "/landing/page": "/landing",
+  "/page": "/"
+}
