@@ -1,1 +1,0 @@
-globalThis.__RSC_MANIFEST=(globalThis.__RSC_MANIFEST||{});globalThis.__RSC_MANIFEST["/api/waitlist/route"]={"moduleLoading":{"prefix":"/_next/"},"ssrModuleMapping":{},"edgeSSRModuleMapping":{},"clientModules":{},"entryCSSFiles":{"/home/asyam/dev/set-up/projects/retropick/apps/retropick-landing/src/app/api/waitlist/route":[]},"rscModuleMapping":{},"edgeRscModuleMapping":{}};
