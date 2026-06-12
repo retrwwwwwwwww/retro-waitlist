@@ -12,7 +12,7 @@ import Footer from "@/sections/Footer"
 
 export default function Page() {
   return (
-    <div className="min-h-screen bg-rp-bg text-white">
+    <div className="min-h-screen overflow-x-clip bg-rp-bg text-white">
       <MotionBootstrap />
       <Navbar />
       <main>

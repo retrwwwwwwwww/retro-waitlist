@@ -94,7 +94,7 @@ export default function ProcessSection() {
               </div>
 
               <div>
-                <div className="mb-2 flex items-baseline gap-2">
+                <div className="mb-2 flex min-w-0 flex-wrap items-baseline gap-2">
                   <span className="text-5xl font-bold text-rp-blue">{step.number}</span>
                   <h3 className="text-2xl font-semibold text-white mb-2">{step.title}</h3>
                 </div>

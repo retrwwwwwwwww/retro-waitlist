@@ -104,7 +104,7 @@ export default function BrandKitSection() {
   return (
     <section id="brand" ref={sectionRef} className="relative w-full bg-rp-bg py-24 md:py-32">
       <div className="mx-auto max-w-[1200px] px-5 md:px-10">
-        <div className="brandkit-title-row mb-10 flex items-center justify-between">
+        <div className="brandkit-title-row mb-10 flex flex-wrap items-center justify-between gap-4">
           <SectionTitle>Brand Kit</SectionTitle>
           <button
             type="button"

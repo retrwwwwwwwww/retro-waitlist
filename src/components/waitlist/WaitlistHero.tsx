@@ -284,14 +284,14 @@ export default function WaitlistHero() {
       <div className="absolute inset-0 bg-[#0a0f2e]">
         <div
           ref={topGlowRef}
-          className="glow-orb absolute left-1/2 top-1/4 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3b7cff] blur-[120px]"
+          className="glow-orb absolute left-1/2 top-1/4 h-[min(600px,130vw)] w-[min(600px,130vw)] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#3b7cff] blur-[120px]"
         />
         <div
           ref={bottomGlowRef}
-          className="glow-orb absolute bottom-1/3 left-1/3 h-[500px] w-[500px] rounded-full bg-[#2563eb] blur-[100px] [animation-delay:-7s]"
+          className="glow-orb absolute bottom-1/3 left-1/3 h-[min(500px,120vw)] w-[min(500px,120vw)] rounded-full bg-[#2563eb] blur-[100px] [animation-delay:-7s]"
         />
 
-        <div ref={horizonRef} className="absolute -bottom-[40%] left-1/2 h-[60%] w-[140%] -translate-x-1/2 will-change-transform">
+        <div ref={horizonRef} className="absolute -bottom-[40%] left-1/2 h-[60%] w-full -translate-x-1/2 will-change-transform sm:w-[140%]">
           <div className="relative h-full w-full">
             <div className="absolute inset-0 rounded-[50%] bg-gradient-to-b from-[#0f1840]/45 to-[#0a0f2e]" />
           </div>
@@ -299,7 +299,7 @@ export default function WaitlistHero() {
 
         <div
           ref={orbRef}
-          className="absolute left-1/2 h-[2250px] w-[2250px] -translate-x-1/2 bottom-[calc(-50%_-_900px)] will-change-transform"
+          className="absolute left-1/2 h-[min(2250px,420vw)] w-[min(2250px,420vw)] -translate-x-1/2 bottom-[calc(-50%_-_900px)] will-change-transform"
         >
           <img src="/images/orb.png" alt="" className="h-full w-full animate-orb-rotate object-contain" />
         </div>
@@ -319,13 +319,13 @@ export default function WaitlistHero() {
       />
       <div className="absolute inset-0 bg-[radial-gradient(circle,transparent,transparent,#0a0f2e)] opacity-60" />
 
-      <div className="relative z-10 flex min-h-screen items-center justify-center px-4 pb-10 pt-28 sm:px-6 sm:pt-32 md:px-8">
-        <div ref={contentRef} className="w-full max-w-6xl will-change-transform">
-          <div className="grid items-start gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12">
-            <div className="max-w-2xl">
+      <div className="relative z-10 flex min-h-screen min-w-0 items-center justify-center px-4 pb-10 pt-28 sm:px-6 sm:pt-32 md:px-8">
+        <div ref={contentRef} className="w-full min-w-0 max-w-6xl will-change-transform">
+          <div className="grid min-w-0 items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
+            <div className="min-w-0 max-w-2xl">
               <h1
                 data-hero-reveal
-                className="max-w-3xl text-balance text-4xl font-semibold leading-[1.04] tracking-tight text-white [text-shadow:0_1px_18px_rgba(0,30,80,0.6)] sm:text-5xl lg:text-[5.5rem]"
+                className="max-w-3xl text-balance break-words text-4xl font-semibold leading-[1.04] tracking-tight text-white [text-shadow:0_1px_18px_rgba(0,30,80,0.6)] sm:text-5xl lg:text-[5.5rem]"
               >
                 Trade Markets
                 <span className="block font-serif italic font-normal text-cyan-100" style={{ fontFamily: "var(--font-playfair, ui-serif, Georgia, serif)" }}>
@@ -337,10 +337,10 @@ export default function WaitlistHero() {
 
             <div
               data-hero-reveal
-              className="mx-auto max-w-xl rounded-[30px] border border-cyan-200/10 bg-[linear-gradient(180deg,rgba(11,18,51,0.9),rgba(4,9,28,0.92))] p-5 shadow-[0_30px_90px_rgba(3,8,25,0.55)] backdrop-blur-xl sm:p-7"
+              className="mx-auto w-full min-w-0 max-w-xl rounded-[30px] border border-cyan-200/10 bg-[linear-gradient(180deg,rgba(11,18,51,0.9),rgba(4,9,28,0.92))] p-5 shadow-[0_30px_90px_rgba(3,8,25,0.55)] backdrop-blur-xl sm:p-7"
             >
-              <form onSubmit={handleSubmit} noValidate className="grid gap-4">
-                <div className="grid gap-4">
+              <form onSubmit={handleSubmit} noValidate className="grid min-w-0 gap-4">
+                <div className="grid min-w-0 gap-4">
                   <div>
                     <label htmlFor="waitlist-email" className="mb-2 block text-sm font-medium text-white/82">
                       Email
@@ -356,23 +356,26 @@ export default function WaitlistHero() {
                       value={form.email}
                       onChange={(event) => setField("email", event.target.value)}
                       disabled={status === "loading"}
-                      className="h-12 w-full rounded-2xl border border-white/10 bg-black/35 px-4 text-white outline-none placeholder:text-white/36 focus:border-cyan-200/50 focus:ring-4 focus:ring-cyan-200/10 disabled:cursor-not-allowed disabled:opacity-60"
+                      className="h-12 w-full min-w-0 rounded-2xl border border-white/10 bg-black/35 px-4 text-base text-white outline-none placeholder:text-white/36 focus:border-cyan-200/50 focus:ring-4 focus:ring-cyan-200/10 disabled:cursor-not-allowed disabled:opacity-60"
                     />
                   </div>
 
-                  <div className="grid gap-4 md:grid-cols-2">
-                    <div>
+                  <div className="grid min-w-0 gap-4 md:grid-cols-2">
+                    <div className="min-w-0">
                       <label htmlFor="waitlist-role" className="mb-2 block text-sm font-medium text-white/82">
                         Who are you?
                       </label>
                       <Select value={form.role} onValueChange={(value) => setField("role", value)} disabled={status === "loading"}>
                         <SelectTrigger
                           id="waitlist-role"
-                          className="h-12 w-full rounded-2xl border border-white/10 bg-black/35 px-4 text-left text-white focus:border-cyan-200/50 focus:ring-4 focus:ring-cyan-200/10 disabled:cursor-not-allowed disabled:opacity-60"
+                          className="h-12 w-full min-w-0 rounded-2xl border border-white/10 bg-black/35 px-4 text-left text-base text-white focus:border-cyan-200/50 focus:ring-4 focus:ring-cyan-200/10 disabled:cursor-not-allowed disabled:opacity-60 md:text-sm"
                         >
                           <SelectValue placeholder="Select role" />
                         </SelectTrigger>
-                        <SelectContent className="bg-slate-950/95 border border-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.35)]">
+                        <SelectContent
+                          position="popper"
+                          className="max-w-[calc(100vw-2rem)] border border-white/10 bg-slate-950/95 shadow-[0_32px_80px_rgba(0,0,0,0.35)]"
+                        >
                           {WAITLIST_ROLE_OPTIONS.map((option) => (
                             <SelectItem key={option} value={option} className="text-white">
                               {roleLabels[option]}
@@ -382,18 +385,21 @@ export default function WaitlistHero() {
                       </Select>
                     </div>
 
-                    <div>
+                    <div className="min-w-0">
                       <label htmlFor="waitlist-primary-use-case" className="mb-2 block text-sm font-medium text-white/82">
                         What do you want RetroPick for?
                       </label>
                       <Select value={form.primary_use_case} onValueChange={(value) => setField("primary_use_case", value)} disabled={status === "loading"}>
                         <SelectTrigger
                           id="waitlist-primary-use-case"
-                          className="h-12 w-full rounded-2xl border border-white/10 bg-black/35 px-4 text-left text-white focus:border-cyan-200/50 focus:ring-4 focus:ring-cyan-200/10 disabled:cursor-not-allowed disabled:opacity-60"
+                          className="h-12 w-full min-w-0 rounded-2xl border border-white/10 bg-black/35 px-4 text-left text-base text-white focus:border-cyan-200/50 focus:ring-4 focus:ring-cyan-200/10 disabled:cursor-not-allowed disabled:opacity-60 md:text-sm"
                         >
                           <SelectValue placeholder="Select use case" />
                         </SelectTrigger>
-                        <SelectContent className="bg-slate-950/95 border border-white/10 shadow-[0_32px_80px_rgba(0,0,0,0.35)]">
+                        <SelectContent
+                          position="popper"
+                          className="max-w-[calc(100vw-2rem)] border border-white/10 bg-slate-950/95 shadow-[0_32px_80px_rgba(0,0,0,0.35)]"
+                        >
                           {WAITLIST_PRIMARY_USE_CASE_OPTIONS.map((option) => (
                             <SelectItem key={option} value={option} className="text-white">
                               {useCaseLabels[option]}

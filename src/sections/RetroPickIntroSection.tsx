@@ -58,7 +58,7 @@ export default function RetroPickIntroSection() {
   );
 
   return (
-    <section id="retropick" ref={sectionRef} className="relative w-full bg-rp-bg pb-16 pt-24">
+    <section id="retropick" ref={sectionRef} className="relative w-full overflow-hidden bg-rp-bg pb-16 pt-24">
       <div className="mx-auto flex max-w-[980px] flex-col items-center px-5 text-center md:px-10">
         <div className="retropick-logo flex items-center justify-center gap-3">
           <LogoMark size={40} />
@@ -124,7 +124,7 @@ export default function RetroPickIntroSection() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 w-full max-w-[1600px] px-5 md:px-10 lg:px-16 relative" id="demo">
+      <div className="relative mx-auto mt-12 w-full max-w-[1600px] px-5 md:px-10 lg:px-16" id="demo">
         <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-rp-dark-blue shadow-[0_40px_120px_-70px_rgba(0,0,0,0.75)]">
           <div className="aspect-[16/9] w-full min-h-[360px] sm:min-h-[420px] md:min-h-[520px] lg:min-h-[620px]">
             <video
@@ -159,7 +159,7 @@ export default function RetroPickIntroSection() {
         <img
           src="/images/picky.png"
           alt="Picky mascot"
-          className="absolute -bottom-32 -right-24 w-96 lg:w-[500px] h-auto opacity-90 animate-float pointer-events-none"
+          className="pointer-events-none absolute -bottom-24 -right-14 h-auto w-56 opacity-90 animate-float sm:-bottom-28 sm:-right-20 sm:w-80 lg:-bottom-32 lg:-right-24 lg:w-[500px]"
           loading="lazy"
         />
       </div>

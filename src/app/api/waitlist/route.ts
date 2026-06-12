@@ -24,8 +24,6 @@ type InsertErrorShape = {
 }
 
 type InsertedWaitlistRow = {
-  id?: string | null
-  email?: string | null
   created_at?: string | null
   referral_code?: string | null
 }
@@ -106,15 +104,14 @@ async function insertWaitlistRecord(
   data: WaitlistInsertRecord
 ) {
   const insertPayload = buildInsertRecord(data)
-  const result = await supabase
-    .from(getStorageMode())
-    .insert(insertPayload)
-    .select("id,email,created_at,referral_code")
-    .single()
+  const result = await supabase.from(getStorageMode()).insert(insertPayload)
 
   return {
     payload: insertPayload,
-    data: (result.data || null) as InsertedWaitlistRow | null,
+    data: {
+      created_at: new Date().toISOString(),
+      referral_code: insertPayload.referral_code,
+    } satisfies InsertedWaitlistRow,
     error: (result.error || null) as InsertErrorShape | null,
   }
 }

@@ -93,7 +93,7 @@ export default function BenefitsSection() {
                   className={`h-full w-full object-cover ${reward.videoClassName ?? ""}`}
                 />
               </div>
-              <div className="mb-2 flex items-baseline gap-2">
+              <div className="mb-2 flex min-w-0 flex-wrap items-baseline gap-2">
                 <span className="text-4xl font-bold text-rp-blue">{reward.number}</span>
                 <h3 className="text-2xl font-semibold text-white">{reward.title}</h3>
               </div>

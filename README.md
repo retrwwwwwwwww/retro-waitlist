@@ -14,8 +14,8 @@ Next.js App Router landing page with a Supabase-first waitlist flow for RetroPic
 Create `.env.local` from `.env.example`.
 
 ```env
-NEXT_PUBLIC_SUPABASE_URL=https://telxousjouyrlctwxhgo.supabase.co
-NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_R6q3YcQNwAqpWyNr0yQoiQ__7lyoO33
+NEXT_PUBLIC_SUPABASE_URL=https://gentuawxpaporvfvafqc.supabase.co
+NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=sb_publishable_o4Udd0wHtyA6jHCiuca7lA_zlbTksEo
 WAITLIST_STORAGE_MODE=retropick_waitlist
 WAITLIST_IP_HASH_SALT=replace-with-a-random-string
 WAITLIST_ALLOW_EMAIL_ONLY_FALLBACK=false
@@ -80,9 +80,9 @@ select * from public.retropick_waitlist order by created_at desc limit 10;
 REST insert test:
 
 ```bash
-curl -i 'https://telxousjouyrlctwxhgo.supabase.co/rest/v1/retropick_waitlist' \
-  -H "apikey: sb_publishable_R6q3YcQNwAqpWyNr0yQoiQ__7lyoO33" \
-  -H "Authorization: Bearer sb_publishable_R6q3YcQNwAqpWyNr0yQoiQ__7lyoO33" \
+curl -i 'https://gentuawxpaporvfvafqc.supabase.co/rest/v1/retropick_waitlist' \
+  -H "apikey: sb_publishable_o4Udd0wHtyA6jHCiuca7lA_zlbTksEo" \
+  -H "Authorization: Bearer sb_publishable_o4Udd0wHtyA6jHCiuca7lA_zlbTksEo" \
   -H "Content-Type: application/json" \
   -H "Prefer: return=representation" \
   -d '{
@@ -97,9 +97,9 @@ curl -i 'https://telxousjouyrlctwxhgo.supabase.co/rest/v1/retropick_waitlist' \
 Duplicate test:
 
 ```bash
-curl -i 'https://telxousjouyrlctwxhgo.supabase.co/rest/v1/retropick_waitlist' \
-  -H "apikey: sb_publishable_R6q3YcQNwAqpWyNr0yQoiQ__7lyoO33" \
-  -H "Authorization: Bearer sb_publishable_R6q3YcQNwAqpWyNr0yQoiQ__7lyoO33" \
+curl -i 'https://gentuawxpaporvfvafqc.supabase.co/rest/v1/retropick_waitlist' \
+  -H "apikey: sb_publishable_o4Udd0wHtyA6jHCiuca7lA_zlbTksEo" \
+  -H "Authorization: Bearer sb_publishable_o4Udd0wHtyA6jHCiuca7lA_zlbTksEo" \
   -H "Content-Type: application/json" \
   -d '{
     "email": "test-waitlist@retropick.xyz",
@@ -110,9 +110,9 @@ curl -i 'https://telxousjouyrlctwxhgo.supabase.co/rest/v1/retropick_waitlist' \
 RLS read-protection test:
 
 ```bash
-curl -i 'https://telxousjouyrlctwxhgo.supabase.co/rest/v1/retropick_waitlist?select=*' \
-  -H "apikey: sb_publishable_R6q3YcQNwAqpWyNr0yQoiQ__7lyoO33" \
-  -H "Authorization: Bearer sb_publishable_R6q3YcQNwAqpWyNr0yQoiQ__7lyoO33"
+curl -i 'https://gentuawxpaporvfvafqc.supabase.co/rest/v1/retropick_waitlist?select=*' \
+  -H "apikey: sb_publishable_o4Udd0wHtyA6jHCiuca7lA_zlbTksEo" \
+  -H "Authorization: Bearer sb_publishable_o4Udd0wHtyA6jHCiuca7lA_zlbTksEo"
 ```
 
 Expected:

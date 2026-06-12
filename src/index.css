@@ -28,9 +28,16 @@
     --radius: 0.625rem;
   }
 
+  html {
+    overflow-x: clip;
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+    min-width: 0;
+    overflow-x: clip;
   }
 
   body:has(#hero) {
@@ -40,6 +47,7 @@
 
   * {
     @apply border-border;
+    box-sizing: border-box;
   }
 }
 
@@ -214,11 +222,6 @@
     animation: none !important;
     transform: none !important;
   }
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
 }
 
 /* Scrollbar styling */

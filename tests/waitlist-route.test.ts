@@ -1,22 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from "vitest"
 
 const insertMock = vi.fn()
-const selectMock = vi.fn()
-const singleMock = vi.fn()
 const fromMock = vi.fn(() => ({
   insert: (...args: unknown[]) => {
     insertMock(...args)
-    return {
-      select: (...selectArgs: unknown[]) => {
-        selectMock(...selectArgs)
-        return {
-          single: (...singleArgs: unknown[]) => {
-            singleMock(...singleArgs)
-            return singleMock.mock.results.at(-1)?.value
-          },
-        }
-      },
-    }
+    return insertMock.mock.results.at(-1)?.value
   },
 }))
 const sendWaitlistEmailsMock = vi.fn()
@@ -52,13 +40,8 @@ describe("POST /api/waitlist", () => {
   beforeEach(() => {
     vi.resetModules()
     vi.clearAllMocks()
-    singleMock.mockResolvedValue({
-      data: {
-        id: "row-1",
-        email: "person@example.com",
-        created_at: "2026-06-11T00:00:00.000Z",
-        referral_code: "generatedref1",
-      },
+    insertMock.mockResolvedValue({
+      data: null,
       error: null,
     })
     sendWaitlistEmailsMock.mockResolvedValue({
@@ -109,7 +92,7 @@ describe("POST /api/waitlist", () => {
   })
 
   it("returns 409 for duplicate email errors", async () => {
-    singleMock.mockResolvedValue({
+    insertMock.mockResolvedValue({
       data: null,
       error: {
         code: "23505",
@@ -200,7 +183,6 @@ describe("POST /api/waitlist", () => {
     expect(sendWaitlistEmailsMock).toHaveBeenCalledWith(
       expect.objectContaining({
         email: "person@example.com",
-        created_at: "2026-06-11T00:00:00.000Z",
         referral_code: "generatedref1",
       })
     )
@@ -235,7 +217,7 @@ describe("POST /api/waitlist", () => {
 
   it("only allows email-only fallback when explicitly enabled", async () => {
     process.env.WAITLIST_ALLOW_EMAIL_ONLY_FALLBACK = "true"
-    singleMock.mockResolvedValue({
+    insertMock.mockResolvedValue({
       data: null,
       error: {
         code: "PGRST205",
@@ -259,7 +241,7 @@ describe("POST /api/waitlist", () => {
   })
 
   it("does not allow email-only fallback when not enabled", async () => {
-    singleMock.mockResolvedValue({
+    insertMock.mockResolvedValue({
       data: null,
       error: {
         code: "PGRST205",

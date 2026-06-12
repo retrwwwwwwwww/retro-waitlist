@@ -53,7 +53,7 @@ export default function FAQSection() {
 
       gsap.from(".faq-item", {
         opacity: 0,
-        x: 30,
+        y: 30,
         duration: 0.5,
         stagger: 0.1,
         ease: "power3.out",
